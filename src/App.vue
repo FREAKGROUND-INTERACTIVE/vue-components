@@ -25,6 +25,7 @@
           :title="card.title"
           :msn="card.msn"
           :link="card.link"
+          :comp="card.comp"
           v-if="!showCategories"
         />
       </template>
@@ -58,7 +59,8 @@ export default {
             {
               title: "font weight",
               msn: "font weight animation with mouseX position",
-              link: "/example",
+              link: "example",
+              comp: "FontWeight"
             },
           ],
         },

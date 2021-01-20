@@ -8,20 +8,13 @@ const routes = [
     component: Home
   },
   {
-    path: '/example',
-    name: 'Example',
+    path: '/examples/:comp',
+    name: 'Examples',
+    props: true,
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Examples.vue')
-  },
-  {
-    path: '/font-weight-animation',
-    name: 'font weight animation',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/examples/FontWeight.vue')
   }
 ]
 

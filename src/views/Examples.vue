@@ -6,15 +6,27 @@
     </div>
     <div class="example__back-text">HOME</div>
   </div>
-  <Font></Font>
+  <Font-weight v-if="toShow=='FontWeight'"></Font-weight>
+  <div class="example__no-component" v-else>no component yet</div>
 </template>
 
 <script>
-import Font from '@/components/examples/FontWeightEx';
+import FontWeight from '@/components/examples/FontWeight';
 export default {
+  props: {
+    comp: String
+  },
   components: {
-    Font,
-  }
+    FontWeight,
+  },
+  data() {
+    return {
+      toShow: this.comp
+    }
+  },
+  mounted() {
+    console.log("comp: ", this.toShow);
+  },
 };
 </script>
 
@@ -86,5 +98,12 @@ export default {
       @include transition(all 0.5s 0.3s ease-out);
     }
   }
+}
+
+.example__no-component {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%,-50%));
 }
 </style>

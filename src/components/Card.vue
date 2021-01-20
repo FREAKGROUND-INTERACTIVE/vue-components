@@ -3,7 +3,7 @@
     <div class="card__header" :title="title">
       {{ title ? title : "no title" }}
       <div class="card__link">
-        <router-link :to="link" v-if="link">Ir</router-link>
+        <router-link :to="{name:'Examples', params: {comp: comp}}" v-if="link">Ir</router-link>
       </div>
     </div>
     <div class="card__content" :title="msn">
@@ -18,6 +18,7 @@ export default {
     title: String,
     msn: String,
     link: String,
+    comp: String
   },
 };
 </script>
