@@ -6,26 +6,32 @@
     </div>
     <div class="example__back-text">HOME</div>
   </div>
-  <Font-weight v-if="toShow=='FontWeight'"></Font-weight>
-  <div class="example__no-component" v-else>no component yet</div>
+  <Font-weight v-if="toShow == 'FontWeight'"></Font-weight>
+  <Link-list v-if="toShow == 'LinkList'" :links="['1',2,'3']"></Link-list>
+  
+  <!-- <div class="example__no-component" v-else>no component yet</div> -->
 </template>
 
 <script>
-import FontWeight from '@/components/examples/FontWeight';
+import FontWeight from "@/components/examples/text/FontWeight";
+import LinkList from "@/components/examples/menu_links/LinkList";
 export default {
   props: {
-    comp: String
+    comp: String,
   },
   components: {
     FontWeight,
+    LinkList,
+  },
+  watch: {
+    comp: function (val) {
+      this.toShow = val;
+    },
   },
   data() {
     return {
-      toShow: this.comp
-    }
-  },
-  mounted() {
-    console.log("comp: ", this.toShow);
+      toShow: this.comp,
+    };
   },
 };
 </script>
@@ -104,6 +110,6 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  @include transform(translate(-50%,-50%));
+  @include transform(translate(-50%, -50%));
 }
 </style>

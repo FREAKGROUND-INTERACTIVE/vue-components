@@ -1,5 +1,6 @@
 <template>
   <router-view />
+  <!--* cateories slider -->
   <transition name="slider">
     <div
       class="slider__container"
@@ -16,7 +17,7 @@
         </div>
       </transition>
       <template v-for="card in categories" :key="card.title">
-        <div v-on:click="getCategories(card.components)" v-if="showCategories">
+        <div v-on:click="getComponents(card.components)" v-if="showCategories">
           <Card :title="card.title" :msn="card.msn" />
         </div>
       </template>
@@ -24,13 +25,13 @@
         <Card
           :title="card.title"
           :msn="card.msn"
-          :link="card.link"
           :comp="card.comp"
           v-if="!showCategories"
         />
       </template>
     </div>
   </transition>
+  <!--* show/hide categories -->
   <div class="slider__show" v-on:click="slider = !slider">
     <transition name="btn">
       <p v-if="!slider">show</p>
@@ -59,19 +60,28 @@ export default {
             {
               title: "font weight",
               msn: "font weight animation with mouseX position",
-              link: "example",
               comp: "FontWeight"
             },
           ],
         },
+        {
+          title: "menu & links",
+          msn: "menu & links components",
+          components: [
+            {
+              title: "link list",
+              msn: "circle list for menu links",
+              comp: "LinkList"
+            }
+          ]
+        }
       ],
       cards: [],
     };
   },
   methods: {
-    getCategories(categories) {
-      console.log("get categories start: ", categories);
-      this.cards = categories;
+    getComponents(components) {
+      this.cards = components;
       this.showCategories = false;
     },
   },

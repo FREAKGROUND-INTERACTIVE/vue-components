@@ -1,9 +1,9 @@
 <template>
-  <div class="card" :class="{click: !link}">
+  <div class="card" :class="{click: !comp}">
     <div class="card__header" :title="title">
       {{ title ? title : "no title" }}
       <div class="card__link">
-        <router-link :to="{name:'Examples', params: {comp: comp}}" v-if="link">Ir</router-link>
+        <router-link :to="{name:'Examples', params: {comp: comp}}" v-if="comp">Ir</router-link>
       </div>
     </div>
     <div class="card__content" :title="msn">
@@ -17,7 +17,6 @@ export default {
   props: {
     title: String,
     msn: String,
-    link: String,
     comp: String
   },
 };

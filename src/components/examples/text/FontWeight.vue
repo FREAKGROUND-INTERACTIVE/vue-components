@@ -108,7 +108,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./../../assets/styles/setup";
+@import "./../../../assets/styles/setup";
 
 .font {
   position: absolute;
