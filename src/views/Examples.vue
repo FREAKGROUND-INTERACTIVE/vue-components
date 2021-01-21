@@ -7,21 +7,21 @@
     <div class="example__back-text">HOME</div>
   </div>
   <Font-weight v-if="toShow == 'FontWeight'"></Font-weight>
-  <Link-list v-if="toShow == 'LinkList'" :links="['1',2,'3']"></Link-list>
+  <Links-list v-if="toShow == 'LinksList'" :links="['1',2,'3']"></Links-list>
   
   <!-- <div class="example__no-component" v-else>no component yet</div> -->
 </template>
 
 <script>
-import FontWeight from "@/components/examples/text/FontWeight";
-import LinkList from "@/components/examples/menu_links/LinkList";
+import FontWeight from "@/components/MI-CASA/FontWeight";
+import LinksList from "@/components/MI-CASA/LinksList";
 export default {
   props: {
     comp: String,
   },
   components: {
     FontWeight,
-    LinkList,
+    LinksList,
   },
   watch: {
     comp: function (val) {

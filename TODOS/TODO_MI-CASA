@@ -1,0 +1,80 @@
+'Cmd/Ctrl+Enter' // Triggers `Todo: Toggle Box`
+'Alt+Enter' // Triggers `Todo: Toggle Box`
+'Alt+D' // Triggers `Todo: Toggle Done`
+'Alt+C' // Triggers `Todo: Toggle Cancelled`
+'Alt+S' // Triggers `Todo: Toggle Start`
+'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
+
+components:
+  task list for components
+  generals:
+    Menu:
+      ☐ time @1h
+      ☐ Create component @critical 
+    ViewTitle:
+      ☐ time @1h
+      ☐ Create component @high 
+    ImgViewTitle:
+      ☐ time @1h
+      ☐ Create Component @high
+    ViewTitleBG:
+      ☐ time @1h
+      ☐ Create component @high 
+    BreadCrumb:
+      ☐ time @1h
+      ☐ Create Component @high 
+    BrandHeader:
+      ☐ time @1h
+      ☐ Create Component @high 
+    Button:
+      ☐ time @1h
+      ☐ Create Component @high
+    CloseButton:
+      ☐ time @1h
+      ☐ Create Component @high
+    LinkButton:
+      ☐ time @1h
+      ☐ Create Component @high
+    Paragraph:
+      ☐ time @1h
+      ☐ Create Component @high
+  home:
+    Home3d:
+      ☐ time @1h
+      ☐ Create component  @critical
+    LinksList:
+      ☐ time @1h
+  agency:
+    ImgBG:
+      ☐ time @1h
+      ☐ Create component @high 
+    TitleWeight:
+      ☐ time @1h
+    Scanner:
+      ☐ time @1h
+      ☐ Create Component @critical
+    Slider3d:
+      ☐ time @1h
+      ☐ Create Component @critical
+    Services:
+      ☐ time @1h
+      ☐ Create Component @high
+    Painter3d:
+      ☐ time @1h
+      ☐ Create Component @critical
+    ClientList:
+      ☐ time @1h
+      ☐ Create Component @high
+  studio:
+    StudioViewver:
+      time @1h
+      ☐ Create Component @critical
+    
+
+
+
+
+
+Archive:
+  ✔ Create component @high @done(21-01-21 17:52) @project(components.agency.TitleWeight)
+  ✔ Create component @high @done(21-01-21 15:16) @project(components.home.LinksList)

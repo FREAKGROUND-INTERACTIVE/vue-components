@@ -54,26 +54,20 @@ export default {
       showCategories: true,
       categories: [
         {
-          title: "text",
-          msn: "text components",
+          title: "MI-CASA",
+          msn: "Developed components for MI-CASA web project",
           components: [
+            {
+              title: "links list",
+              msn: "circle list for menu links",
+              comp: "LinksList"
+            },
             {
               title: "font weight",
               msn: "font weight animation with mouseX position",
               comp: "FontWeight"
             },
           ],
-        },
-        {
-          title: "menu & links",
-          msn: "menu & links components",
-          components: [
-            {
-              title: "link list",
-              msn: "circle list for menu links",
-              comp: "LinkList"
-            }
-          ]
         }
       ],
       cards: [],
