@@ -23,7 +23,8 @@ export default {
   props: {
     links: Array,
     external: Boolean,
-    size: Number
+    size: Number,
+    color: String,
   },
   data() {
     return {
@@ -31,11 +32,25 @@ export default {
     };
   },
   mounted() {
-      let items = document.querySelectorAll(".link__item");
-      items.forEach(elem =>{
-          elem.style.width = (this.size?this.size:30) + 'px';
-          elem.style.height = (this.size?this.size:30) + 'px';
+    let items = this.$el.querySelectorAll(".link__item");
+    this.setSize(items);
+    this.setColor(items);
+  },
+  methods: {
+    setSize(items) {
+      items.forEach((elem) => {
+        elem.style.width = `${this.size ? this.size : 30}px`;
+        elem.style.height = `${this.size ? this.size : 30}px`;
       });
+    },
+    setColor(items) {
+      items.forEach((elem) => {
+        elem.style.borderColor = `#${this.color ? this.color : "333"}`;
+        elem.style.borderColor = `#${this.color ? this.color : "333"}`;
+        elem.style.borderColor = `#${this.color ? this.color : "333"}`;
+        elem.style.borderColor = `#${this.color ? this.color : "333"}`;
+      });
+    },
   },
 };
 </script>
@@ -43,11 +58,11 @@ export default {
 <style lang="scss" scoped>
 @import "./../../../assets/styles/setup";
 
-.link {
+.link { 
   //* for this vue
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 50%; 
   @include transform(translate(-50%, -50%));
   //* end for this vue
 
@@ -67,7 +82,7 @@ export default {
     cursor: pointer;
 
     &:hover {
-      background-color: #000;
+      background-color: #ff0000;
     }
   }
 }
