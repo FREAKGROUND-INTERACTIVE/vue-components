@@ -22,22 +22,22 @@ components:
       ☐ Create component @high 
     BreadCrumb:
       ☐ time @1h
-      ☐ Create Component @high 
+      ☐ Create Component @low 
     BrandHeader:
       ☐ time @1h
-      ☐ Create Component @high 
+      ☐ Create Component @low 
     Button:
       ☐ time @1h
-      ☐ Create Component @high
+      ☐ Create Component @low 
     CloseButton:
       ☐ time @1h
-      ☐ Create Component @high
+      ☐ Create Component @low 
     LinkButton:
       ☐ time @1h
-      ☐ Create Component @high
+      ☐ Create Component @low 
     Paragraph:
       ☐ time @1h
-      ☐ Create Component @high
+      ☐ Create Component @low 
   home:
     Home3d:
       ☐ time @1h
@@ -58,13 +58,13 @@ components:
       ☐ Create Component @critical
     Services:
       ☐ time @1h
-      ☐ Create Component @high
+      ☐ Create Component @low 
     Painter3d:
       ☐ time @1h
       ☐ Create Component @critical
     ClientList:
       ☐ time @1h
-      ☐ Create Component @high
+      ☐ Create Component @low 
   studio:
     StudioViewver:
       time @1h
