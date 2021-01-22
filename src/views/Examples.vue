@@ -8,6 +8,7 @@
   </div>
   <Font-weight v-if="toShow == 'FontWeight'"></Font-weight>
   <Links-list v-if="toShow == 'LinksList'" :links="['1',2,'3']"></Links-list>
+  <Bread-crumb v-if="toShow == 'BreadCrumb'" :number="numberPage" :title="titlePage"></Bread-crumb>
   
   <!-- <div class="example__no-component" v-else>no component yet</div> -->
 </template>
@@ -15,6 +16,7 @@
 <script>
 import FontWeight from "@/components/MI-CASA/FontWeight";
 import LinksList from "@/components/MI-CASA/LinksList";
+import BreadCrumb from "@/components/MI-CASA/BreadCrumb";
 export default {
   props: {
     comp: String,
@@ -22,6 +24,7 @@ export default {
   components: {
     FontWeight,
     LinksList,
+    BreadCrumb
   },
   watch: {
     comp: function (val) {
@@ -31,8 +34,16 @@ export default {
   data() {
     return {
       toShow: this.comp,
+      numberPage: "01",
+      titlePage: "Agency",
     };
   },
+  mounted() {
+    setTimeout(() => {
+      this.titlePage = "Studio";
+      this.numberPage = "02";
+    }, 3000);
+  }
 };
 </script>
 

@@ -67,6 +67,11 @@ export default {
               msn: "font weight animation with mouseX position",
               comp: "FontWeight"
             },
+            {
+              title: "breadcrumb",
+              msn: "actual state for views",
+              comp: "BreadCrumb"
+            },
           ],
         }
       ],

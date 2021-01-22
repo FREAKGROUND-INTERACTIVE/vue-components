@@ -22,7 +22,6 @@ components:
       ☐ Create component @high 
     BreadCrumb:
       ☐ time @1h
-      ☐ Create Component @low 
     BrandHeader:
       ☐ time @1h
       ☐ Create Component @low 
@@ -70,11 +69,7 @@ components:
       time @1h
       ☐ Create Component @critical
     
-
-
-
-
-
 Archive:
+  ✔ Create Component @low @started(21-01-21 20:01) @done(21-01-21 21:04) @lasted(1h3m42s) @project(components.generals.BreadCrumb)
   ✔ Create component @high @done(21-01-21 17:52) @project(components.agency.TitleWeight)
   ✔ Create component @high @done(21-01-21 15:16) @project(components.home.LinksList)
