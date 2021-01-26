@@ -12,6 +12,7 @@
   <Button v-if="toShow == 'Button'"></Button>
   <Link-button :link="link" v-if="toShow == 'LinkButton'"></Link-button>
   <Img-view-title v-if="toShow == 'ImgViewTitle'"></Img-view-title>
+  <View-title v-if="toShow == 'ViewTitle'" :text="titlePage"></View-title>
   
   <!-- <div class="example__no-component" v-else>no component yet</div> -->
 </template>
@@ -23,6 +24,7 @@ import BreadCrumb from "@/components/MI-CASA/BreadCrumb";
 import Button from "@/components/MI-CASA/Button";
 import LinkButton from "@/components/MI-CASA/LinkButton";
 import ImgViewTitle from "@/components/MI-CASA/ImgViewTitle";
+import ViewTitle from "@/components/MI-CASA/ViewTitle";
 
 export default {
   props: {
@@ -34,7 +36,8 @@ export default {
     BreadCrumb,
     Button,
     LinkButton,
-    ImgViewTitle
+    ImgViewTitle,
+    ViewTitle
   },
   watch: {
     comp: function (val) {

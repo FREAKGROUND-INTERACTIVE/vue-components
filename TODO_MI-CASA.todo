@@ -13,13 +13,12 @@ components:
       ☐ Create component @critical 
     ViewTitle:
       ☐ time @1h
-      ☐ Create component @high 
+      ☐ Create component @high @1h @started(21-01-25 21:20)
     ImgViewTitle:
       ☐ time @1h
-      ✔ Create Component @high @1h @started(21-01-24 17:59) @done(21-01-24 18:59) @lasted(1h7s)
     ViewTitleBG:
       ☐ time @1h
-      ☐ Create component @high 
+      ☐ Create component @high
     BreadCrumb:
       ☐ time @1h
     BrandHeader:
@@ -27,13 +26,11 @@ components:
       ☐ Create Component @low 
     Button:
       ☐ time @1h
-      ✔ Create Component @low @started(21-01-22 16:28) @done(21-01-24 17:57) @lasted(2d1h29m50s)
     CloseButton:
       ☐ time @1h
       ☐ Create Component @low 
     LinkButton:
       ☐ time @1h
-      ✔ Create Component @low @started(21-01-22 17:28) @done(21-01-24 17:57) @lasted(2d29m48s)
     Paragraph:
       ☐ time @1h
       ☐ Create Component @low 
@@ -70,6 +67,9 @@ components:
       ☐ Create Component @critical
     
 Archive:
+  ✔ Create Component @high @1h @started(21-01-24 17:59) @done(21-01-24 18:59) @lasted(1h7s) @project(components.generals.ImgViewTitle)
+  ✔ Create Component @low @started(21-01-22 16:28) @done(21-01-24 17:57) @lasted(2d1h29m50s) @project(components.generals.Button)
+  ✔ Create Component @low @started(21-01-22 17:28) @done(21-01-24 17:57) @lasted(2d29m48s) @project(components.generals.LinkButton)
   ✔ Create Component @low @started(21-01-21 20:01) @done(21-01-21 21:04) @lasted(1h3m42s) @project(components.generals.BreadCrumb)
   ✔ Create component @high @done(21-01-21 17:52) @project(components.agency.TitleWeight)
   ✔ Create component @high @done(21-01-21 15:16) @project(components.home.LinksList)

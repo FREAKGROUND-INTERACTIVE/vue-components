@@ -87,6 +87,11 @@ export default {
               msn: "img for the main title view",
               comp: "ImgViewTitle"
             },
+            {
+              title: "view title",
+              msn: "title for the main title view",
+              comp: "ViewTitle"
+            },
           ],
         }
       ],
