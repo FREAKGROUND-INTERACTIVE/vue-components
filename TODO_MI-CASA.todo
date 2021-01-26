@@ -16,7 +16,7 @@ components:
       ☐ Create component @high 
     ImgViewTitle:
       ☐ time @1h
-      ☐ Create Component @high
+      ✔ Create Component @high @1h @started(21-01-24 17:59) @done(21-01-24 18:59) @lasted(1h7s)
     ViewTitleBG:
       ☐ time @1h
       ☐ Create component @high 
@@ -27,13 +27,13 @@ components:
       ☐ Create Component @low 
     Button:
       ☐ time @1h
-      ☐ Create Component @low 
+      ✔ Create Component @low @started(21-01-22 16:28) @done(21-01-24 17:57) @lasted(2d1h29m50s)
     CloseButton:
       ☐ time @1h
       ☐ Create Component @low 
     LinkButton:
       ☐ time @1h
-      ☐ Create Component @low 
+      ✔ Create Component @low @started(21-01-22 17:28) @done(21-01-24 17:57) @lasted(2d29m48s)
     Paragraph:
       ☐ time @1h
       ☐ Create Component @low 

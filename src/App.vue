@@ -72,6 +72,21 @@ export default {
               msn: "actual state for views",
               comp: "BreadCrumb"
             },
+            {
+              title: "button",
+              msn: "general button",
+              comp: "Button"
+            },
+            {
+              title: "link button",
+              msn: "button for links",
+              comp: "LinkButton"
+            },
+            {
+              title: "img view title",
+              msn: "img for the main title view",
+              comp: "ImgViewTitle"
+            },
           ],
         }
       ],
