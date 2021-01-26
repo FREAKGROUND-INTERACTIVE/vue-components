@@ -1,7 +1,7 @@
 //* CSS PREFIX MIXINS
 
 //* mixins SASS
-@mixin transition($property) {
+@mixin transition($property...) {
     -webkit-transition: $property;
     -moz-transition: $property;
     -ms-transition: $property;
