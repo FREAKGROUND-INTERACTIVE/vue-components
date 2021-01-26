@@ -13,6 +13,7 @@
   <Link-button :link="link" v-if="toShow == 'LinkButton'"></Link-button>
   <Img-view-title v-if="toShow == 'ImgViewTitle'"></Img-view-title>
   <View-title v-if="toShow == 'ViewTitle'" :text="titlePage"></View-title>
+  <Home3d v-if="toShow == 'Home3d'"></Home3d>
   
   <!-- <div class="example__no-component" v-else>no component yet</div> -->
 </template>
@@ -25,6 +26,7 @@ import Button from "@/components/MI-CASA/Button";
 import LinkButton from "@/components/MI-CASA/LinkButton";
 import ImgViewTitle from "@/components/MI-CASA/ImgViewTitle";
 import ViewTitle from "@/components/MI-CASA/ViewTitle";
+import Home3d from "@/components/MI-CASA/Home3d";
 
 export default {
   props: {
@@ -37,7 +39,8 @@ export default {
     Button,
     LinkButton,
     ImgViewTitle,
-    ViewTitle
+    ViewTitle,
+    Home3d
   },
   watch: {
     comp: function (val) {

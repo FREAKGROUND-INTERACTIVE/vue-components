@@ -36,7 +36,6 @@ components:
   home:
     Home3d:
       ☐ time @1h
-      ☐ Create component  @critical
     LinksList:
       ☐ time @1h
   agency:
@@ -66,6 +65,7 @@ components:
       ☐ Create Component @critical
     
 Archive:
+  ✔ Create component  @critical @2h @started(21-01-26 11:54) @done(21-01-26 13:31) @lasted(1h37m4s) @project(components.home.Home3d)
   ✔ Create component @high @1h @started(21-01-25 21:20) @done(21-01-25 23:00) @lasted(1h40m22s) @project(components.generals.ViewTitle)
   ✔ Create Component @high @1h @started(21-01-24 17:59) @done(21-01-24 18:59) @lasted(1h7s) @project(components.generals.ImgViewTitle)
   ✔ Create Component @low @started(21-01-22 16:28) @done(21-01-24 17:57) @lasted(2d1h29m50s) @project(components.generals.Button)

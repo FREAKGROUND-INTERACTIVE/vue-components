@@ -92,6 +92,11 @@ export default {
               msn: "title for the main title view",
               comp: "ViewTitle"
             },
+            {
+              title: "home 3d",
+              msn: "3D scene for the landing view",
+              comp: "Home3d"
+            },
           ],
         }
       ],
@@ -115,10 +120,12 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
+  height: auto;
   background-color: #ddd;
   padding: 1rem;
 
   display: flex;
+  flex-flow: row wrap;
   @include transition(all 0.3s);
 
   .slider__back {
@@ -152,6 +159,7 @@ export default {
 
   &.inComponent {
     padding-left: 60px;
+    margin-right: 160px;
   }
 }
 
