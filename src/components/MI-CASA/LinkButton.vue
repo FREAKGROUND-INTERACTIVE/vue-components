@@ -1,28 +1,66 @@
 <template>
-  <div class="linkButton">
-    <div class="linkButton__line">
-      <div></div>
+  <transition v-on:enter="enter" v-bind:css="false">
+    <div class="linkButton">
+      <div class="linkButton__line">
+        <div></div>
+      </div>
+      <router-link :to="linkUrl">
+        <div class="linkButton__text">
+          <template v-for="letter in text" :key="letter">
+            <div class="linkButton__text-letter">
+              {{ letter }}
+            </div>
+          </template>
+        </div></router-link
+      >
     </div>
-    <router-link :to="linkUrl"><div class="linkButton__text">Next</div></router-link>
-  </div>
+  </transition>
 </template>
 
 <script>
-  export default {
-    props: {
-      link: String
+import { gsap } from "gsap";
+
+export default {
+  props: {
+    link: String,
+  },
+  watch: {
+    link: function (val) {
+      this.linkUrl = val;
     },
-    watch: {
-      link: function(val) {
-        this.linkUrl = val;
-      }
+  },
+  data() {
+    return {
+      linkUrl: this.link,
+      text: "Next".split(""),
+      letters: null,
+    };
+  },
+  mounted() {
+    this.letters = this.$el.querySelectorAll(".linkButton__text-letter");
+    this.initAnimation();
+  },
+  methods: {
+    enter: function () {
+      console.log("enter");
     },
-    data() {
-      return {
-        linkUrl: this.link 
-      }
-    }
-  }
+    initAnimation() {
+      console.log("init");
+      let animTl = gsap.timeline();
+      this.letters.forEach((element) => {
+        console.log(element);
+        animTl.from(element, {
+          duration: 1,
+          y: "100%",
+          // onComplete: function () {
+          //   console.log(index);
+          // },
+        });
+      });
+      animTl.play();
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -41,13 +79,18 @@
 
   .linkButton__line {
     margin-right: 1rem;
-    
+
     div {
       width: 130px;
       height: 1px;
       background-color: #333;
     }
   }
-}
 
+  .linkButton__text {
+    .linkButton__text-letter {
+      display: inline-block;
+    }
+  }
+}
 </style>
