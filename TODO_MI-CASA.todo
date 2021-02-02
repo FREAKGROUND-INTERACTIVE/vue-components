@@ -22,7 +22,6 @@ components:
       ☐ time @1h
     BrandHeader:
       ☐ time @1h
-      ✔ Create Component @low @1h @started(21-01-28 14:40) @done(21-01-28 15:48) @lasted(1h8m41s)
     Button:
       ☐ time @1h
     CloseButton:
@@ -32,7 +31,7 @@ components:
       ☐ time @1h
     Paragraph:
       ☐ time @1h
-      ✔ Create Component @low @1h @started(21 -01-27 13:12) @done(21-01-28 10:52) @lasted(21h40m12s)
+      ☐ Styles @started(21-02-02 11:11)
   home:
     Home3d:
       ☐ time @1h
@@ -52,19 +51,22 @@ components:
       ☐ Create Component @critical
     Services:
       ☐ time @1h
-      ✔ Create Component @low @started(21-01-28 14:40) @done(21-01-28 14:40) @lasted(28s)
     Painter3d:
       ☐ time @1h
       ☐ Create Component @critical
     ClientList:
       ☐ time @1h
-      ✔ Create Component @low @started(21-01-28 14:53) @done(21-01-28 15:41) @lasted(48m13s)
   studio:
     StudioViewver:
       time @1h
       ☐ Create Component @critical
     
 Archive:
+  ✔ Create Component @low @1h @started(21-01-28 14:40) @done(21-01-28 15:48) @lasted(1h8m41s) @project(components.generals.BrandHeader)
+  ✔ Create Component @low @1h @started(21 -01-27 13:12) @done(21-01-28 10:52) @lasted(21h40m12s) @project(components.generals.Paragraph)
+  ✔ Styles @started(21-02-02 14:45) @done(21-02-02 14:57) @lasted(12m25s) @project(components.home.LinksList)
+  ✔ Create Component @low @started(21-01-28 14:40) @done(21-01-28 14:40) @lasted(28s) @project(components.agency.Services)
+  ✔ Create Component @low @started(21-01-28 14:53) @done(21-01-28 15:41) @lasted(48m13s) @project(components.agency.ClientList)
   ✔ Create component  @critical @2h @started(21-01-26 11:54) @done(21-01-26 13:31) @lasted(1h37m4s) @project(components.home.Home3d)
   ✔ Create component @high @1h @started(21-01-25 21:20) @done(21-01-25 23:00) @lasted(1h40m22s) @project(components.generals.ViewTitle)
   ✔ Create Component @high @1h @started(21-01-24 17:59) @done(21-01-24 18:59) @lasted(1h7s) @project(components.generals.ImgViewTitle)
