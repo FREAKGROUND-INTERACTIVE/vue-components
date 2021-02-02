@@ -29,6 +29,7 @@ components:
       ☐ Create Component @low 
     LinkButton:
       ☐ time @1h
+      ☐ Styles @started(21-02-02 15:40)
     Paragraph:
       ☐ time @1h
       ☐ Styles @started(21-02-02 11:11)
