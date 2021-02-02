@@ -14,7 +14,7 @@
   <Img-view-title v-if="toShow == 'ImgViewTitle'"></Img-view-title>
   <View-title v-if="toShow == 'ViewTitle'" :text="titlePage"></View-title>
   <Home3d v-if="toShow == 'Home3d'"></Home3d>
-  <Paragraph v-if="toShow == 'Paragraph'" :align="'center'" :quote="'Example quote'" :title="'Example title'" :subtitle="'Example subtitle'" :text="'Example text'"></Paragraph>
+  <Paragraph v-if="toShow == 'Paragraph'" :align="'left'" :quote="'Example quote'" :title="'Mi Casa Studios'" :subtitle="'Example subtitle'" :text="' Lorem\n ipsum dolor sit amet consectetur, adipisicing elit.\n Rerum blanditiis dolores earum adipisci dolore ut consectetur, illum dolorem maxime modi praesentium officia\n ratione sed laborum in voluptate incidunt, minus ex?'"></Paragraph>
   <Services v-if="toShow == 'Services'" :list="servicesList"></Services>
   <Brand-header v-if="toShow == 'BrandHeader'" :link="link"></Brand-header>
   <Client-list v-if="toShow == 'ClientList'" :list="clientList"></Client-list>

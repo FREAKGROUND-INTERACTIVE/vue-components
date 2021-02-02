@@ -3,11 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
 
 
 //* SCSS PARTIALS
 @import './partials/resets';
 @import './partials/utils';
+
+$lora: 'Lora', serif;
+$fira: 'Fira Sans', sans-serif;
+
+$red: #ed572f;
 
 body {
   font-family: "Montserrat";
