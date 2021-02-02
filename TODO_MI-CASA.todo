@@ -22,7 +22,7 @@ components:
       ☐ time @1h
     BrandHeader:
       ☐ time @1h
-      ☐ Create Component @low 
+      ✔ Create Component @low @1h @started(21-01-28 14:40) @done(21-01-28 15:48) @lasted(1h8m41s)
     Button:
       ☐ time @1h
     CloseButton:
@@ -32,7 +32,7 @@ components:
       ☐ time @1h
     Paragraph:
       ☐ time @1h
-      ☐ Create Component @low 
+      ✔ Create Component @low @1h @started(21 -01-27 13:12) @done(21-01-28 10:52) @lasted(21h40m12s)
   home:
     Home3d:
       ☐ time @1h
@@ -52,13 +52,13 @@ components:
       ☐ Create Component @critical
     Services:
       ☐ time @1h
-      ☐ Create Component @low 
+      ✔ Create Component @low @started(21-01-28 14:40) @done(21-01-28 14:40) @lasted(28s)
     Painter3d:
       ☐ time @1h
       ☐ Create Component @critical
     ClientList:
       ☐ time @1h
-      ☐ Create Component @low 
+      ✔ Create Component @low @started(21-01-28 14:53) @done(21-01-28 15:41) @lasted(48m13s)
   studio:
     StudioViewver:
       time @1h
