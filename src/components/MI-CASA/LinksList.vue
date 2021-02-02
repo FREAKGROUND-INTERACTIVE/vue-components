@@ -6,6 +6,7 @@
         class="link__item"
         :to="item.toString()"
         v-if="!isExternal"
+        @mouseenter="setTitle(item.toString())"
       ></router-link>
       <a
         :href="item.toString()"
@@ -39,18 +40,21 @@ export default {
   methods: {
     setSize(items) {
       items.forEach((elem) => {
-        elem.style.width = `${this.size ? this.size : 30}px`;
-        elem.style.height = `${this.size ? this.size : 30}px`;
+        elem.style.width = `${this.size ? this.size : 20}px`;
+        elem.style.height = `${this.size ? this.size : 20}px`;
       });
     },
     setColor(items) {
       items.forEach((elem) => {
-        elem.style.borderColor = `#${this.color ? this.color : "333"}`;
-        elem.style.borderColor = `#${this.color ? this.color : "333"}`;
-        elem.style.borderColor = `#${this.color ? this.color : "333"}`;
-        elem.style.borderColor = `#${this.color ? this.color : "333"}`;
+        elem.style.borderColor = `#${this.color ? this.color : "fff"}`;
+        elem.style.borderColor = `#${this.color ? this.color : "fff"}`;
+        elem.style.borderColor = `#${this.color ? this.color : "fff"}`;
+        elem.style.borderColor = `#${this.color ? this.color : "fff"}`;
       });
     },
+    setTitle(title) {
+      this.$emit('changeTitle', title)
+    }
   },
 };
 </script>
@@ -72,17 +76,17 @@ export default {
   justify-content: space-between;
 
   .link__item {
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    border: 5px solid #333;
+    border: 3px solid #fff;
     //   margin: 0 2rem;
     @include transition(all 0.3s);
 
     cursor: pointer;
 
     &:hover {
-      background-color: #ff0000;
+      background-color: #fff;
     }
   }
 }

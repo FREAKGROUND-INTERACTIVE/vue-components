@@ -1,7 +1,7 @@
 <template>
   <div class="viewTitle">
-    <h1>{{ newTitle }}</h1>
-    <h1>{{ title }}</h1>
+    <h1>{{newTitle}}</h1>
+    <h1>{{title}}</h1>
   </div>
 </template>
 
@@ -19,14 +19,14 @@ export default {
       setTimeout(() => {
         this.title = this.newTitle;
         this.$el.classList.remove("change");
-      }, 500);
+      }, 300);
     },
   },
   data() {
     return {
       title: this.text,
       newTitle: this.text
-    }
+    };
   },
 };
 </script>
@@ -39,21 +39,25 @@ export default {
   left: 50%;
   top: 50%;
   @include transform(translate(-50%, -50%));
-  height: 160px;
+  height: 140px;
   overflow: hidden;
   text-align: center;
+  pointer-events: none;
 
   h1 {
     font-size: 10rem;
     text-transform: uppercase;
     @include transform(translateY(-100%));
     line-height: 1;
+    color: white;
+    font-weight: 900;
+    white-space: nowrap;
   }
 
   &.change {
     h1 {
       @include transform(translateY(0));
-      @include transition(all 0.5s ease-in);
+      @include transition(all 0.3s ease-out);
     }
   }
 }
