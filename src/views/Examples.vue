@@ -14,6 +14,10 @@
   <Img-view-title v-if="toShow == 'ImgViewTitle'"></Img-view-title>
   <View-title v-if="toShow == 'ViewTitle'" :text="titlePage"></View-title>
   <Home3d v-if="toShow == 'Home3d'"></Home3d>
+  <Paragraph v-if="toShow == 'Paragraph'" :align="'center'" :quote="'Example quote'" :title="'Example title'" :subtitle="'Example subtitle'" :text="'Example text'"></Paragraph>
+  <Services v-if="toShow == 'Services'" :list="servicesList"></Services>
+  <Brand-header v-if="toShow == 'BrandHeader'" :link="link"></Brand-header>
+  <Client-list v-if="toShow == 'ClientList'" :list="clientList"></Client-list>
   
   <!-- <div class="example__no-component" v-else>no component yet</div> -->
 </template>
@@ -27,6 +31,10 @@ import LinkButton from "@/components/MI-CASA/LinkButton";
 import ImgViewTitle from "@/components/MI-CASA/ImgViewTitle";
 import ViewTitle from "@/components/MI-CASA/ViewTitle";
 import Home3d from "@/components/MI-CASA/Home3d";
+import Paragraph from "@/components/MI-CASA/Paragraph";
+import Services from "@/components/MI-CASA/Services";
+import BrandHeader from "@/components/MI-CASA/BrandHeader";
+import ClientList from "@/components/MI-CASA/ClientList";
 
 export default {
   props: {
@@ -40,7 +48,11 @@ export default {
     LinkButton,
     ImgViewTitle,
     ViewTitle,
-    Home3d
+    Home3d,
+    Paragraph,
+    Services,
+    BrandHeader,
+    ClientList
   },
   watch: {
     comp: function (val) {
@@ -52,7 +64,9 @@ export default {
       toShow: this.comp,
       numberPage: "01",
       titlePage: "Agency",
-      link: "/"
+      link: "/",
+      servicesList: ['Service 1', 'Service 2', 'Service 3','Service 1', 'Service 2', 'Service 3','Service 1', 'Service 2', 'Service 3',],
+      clientList: ['https://picsum.photos/1920/1080?random=1','https://picsum.photos/1920/1080?random=2','https://picsum.photos/1920/1080?random=3','https://picsum.photos/1920/1080?random=4','https://picsum.photos/1920/1080?random=5','https://picsum.photos/1920/1080?random=1','https://picsum.photos/1920/1080?random=2','https://picsum.photos/1920/1080?random=3','https://picsum.photos/1920/1080?random=4','https://picsum.photos/1920/1080?random=5','https://picsum.photos/1920/1080?random=1','https://picsum.photos/1920/1080?random=2','https://picsum.photos/1920/1080?random=3','https://picsum.photos/1920/1080?random=4','https://picsum.photos/1920/1080?random=5','https://picsum.photos/1920/1080?random=1','https://picsum.photos/1920/1080?random=2','https://picsum.photos/1920/1080?random=3','https://picsum.photos/1920/1080?random=4','https://picsum.photos/1920/1080?random=5']
     };
   },
   mounted() {

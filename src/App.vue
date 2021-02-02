@@ -97,6 +97,26 @@ export default {
               msn: "3D scene for the landing view",
               comp: "Home3d"
             },
+            {
+              title: "paragraph",
+              msn: "paragraphs for text",
+              comp: "Paragraph"
+            },
+            {
+              title: "services",
+              msn: "list for available services",
+              comp: "Services"
+            },
+            {
+              title: "brandheader",
+              msn: "brand logo",
+              comp: "BrandHeader"
+            },
+            {
+              title: "client list",
+              msn: "list for available clients",
+              comp: "ClientList"
+            }
           ],
         }
       ],
