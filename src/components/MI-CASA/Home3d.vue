@@ -1,10 +1,11 @@
 <template>
-  <div id="home"></div>
+  <div id="home" @mousemove="onMouseMove"></div>
 </template>
 
 <script>
 import * as THREE from "three";
 import Stats from "three/examples/jsm/libs/stats.module.js";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import gsap from "gsap";
 import fragmentShader from "raw-loader!glslify-loader!@/assets/glsl/fragmentShader.glsl";
 import vertexShader from "raw-loader!glslify-loader!@/assets/glsl/vertexShader.glsl";
@@ -12,7 +13,8 @@ import vertexShader from "raw-loader!glslify-loader!@/assets/glsl/vertexShader.g
 export default {
   data() {
     return {
-      animReq: null,
+      animReq: null, //* requestAnimationFrame variable for scene loop
+      mouse: null,
     };
   },
   mounted() {
@@ -21,34 +23,23 @@ export default {
     let renderer;
     let transition;
     let stats;
-    let mouse;
+
+    //* THREEJS Mouse variable
+    this.mouse = new THREE.Vector2(0, 0);
 
     //* Init THREE Clock
     const clock = new THREE.Clock();
 
+    //* Instantiate the loader
+    const loader = new OBJLoader();
+
+    let that = this;
+
     /**
-     ** init
+     ** INIT FUNCTION
      *? init function for initialize THREE basics
      */
     const init = () => {
-      //! Init GUI
-      //initGUI();
-
-      mouse = new THREE.Vector2(0, 0);
-      window.addEventListener("mousemove", (ev) => {
-        onMouseMove(ev);
-      });
-
-      function onMouseMove(event) {
-        // mouse.x = event.clientX / window.innerWidth;
-        // mouse.y = event.clientY / window.innerHeight;
-        gsap.to(mouse, {
-            duration: 0.5,
-            x: (event.clientX / window.innerWidth) * 2 - 1,
-            y: -(event.clientY / window.innerHeight)* - 2
-        })
-      }
-
       //* Init Container
       container = document.getElementById("home");
 
@@ -63,8 +54,31 @@ export default {
       container.appendChild(stats.dom);
 
       //* Init Scenes
-      const sceneA = new FXScene(3, 120, 0xffffff, true);
-      const sceneB = new FXScene(3, 120, 0xffffff, false);
+      const sceneA = new FXScene(12, 35, 0xdfdfdf, true);
+      const sceneB = new FXScene(12, 35, 0xdfdfdf, false);
+
+      //* Imported OBJ variable
+      let obj, obj2;
+
+      //* load a .OBJ resource from provided URL synchronously
+      loader.load(
+        "https://res.cloudinary.com/nancloud/raw/upload/v1612211681/mi-casa/models/micasa_marco_xz72ok.obj",
+        function (object) {
+          obj2 = object;
+          sceneA.addObj(obj2, true);
+          sceneB.addObj(obj2.clone(), true);
+        }
+      );
+
+      //* load a .OBJ resource from provided URL synchronously
+      loader.load(
+        "https://res.cloudinary.com/nancloud/raw/upload/v1612210946/mi-casa/models/micasa_collage_qu6pwi.obj",
+        function (object) {
+          obj = object;
+          sceneA.addObj(obj, false);
+          sceneB.addObj(obj.clone(), false);
+        }
+      );
 
       //* init Transition
       transition = new Transition(sceneA, sceneB);
@@ -78,7 +92,6 @@ export default {
       this.animReq = requestAnimationFrame(animate);
       render();
       stats.update();
-      console.log("animating scene");
     };
 
     /**
@@ -91,10 +104,11 @@ export default {
 
     /**
      ** FXScene
-     *? create scene with camera and box mesh
+     *? create scene with camera and box mesh popo pipi juan
      * @param cameraZ camera position in Z axis
      * @param fov camera field of view
      * @param clearColor color for setClearColor renderer
+     * @param sceneID Id for diferent scene
      */
     function FXScene(cameraZ, fov, clearColor, sceneID) {
       this.clearColor = clearColor;
@@ -103,7 +117,7 @@ export default {
       this.camera = new THREE.PerspectiveCamera(
         fov,
         window.innerWidth / window.innerHeight,
-        1,
+        0.1,
         10000
       );
       this.camera.position.z = cameraZ;
@@ -112,10 +126,11 @@ export default {
       this.scene = new THREE.Scene();
 
       //* Init AmbientLight
-      this.scene.add(new THREE.AmbientLight(0x555555));
+      // this.scene.add(new THREE.AmbientLight(0x3e3e3e));
+      this.scene.add(new THREE.AmbientLight(0x3a3a3a));
 
       //* Init Light
-      const light = new THREE.SpotLight(0xffffff, 1.5);
+      const light = new THREE.SpotLight(0x808080, 1.5);
       light.position.set(0, 500, 2000);
       this.scene.add(light);
 
@@ -126,7 +141,8 @@ export default {
         vertexColors: true,
       });
       this.mesh = new THREE.Mesh(new THREE.TorusGeometry(), defaultMaterial);
-      this.scene.add(this.mesh);
+      this.mesh2 = new THREE.Mesh(new THREE.TorusGeometry(), defaultMaterial);
+      // this.scene.add(this.mesh);
 
       const renderTargetParameters = {
         minFilter: THREE.LinearFilter,
@@ -141,7 +157,7 @@ export default {
 
       this.render = (delta, rtt) => {
         renderer.setClearColor(this.clearColor);
-        this.mesh.rotation.x += 0.01;
+        // this.mesh.rotation.x = 45;
         if (rtt) {
           renderer.setRenderTarget(this.fbo);
           renderer.clear();
@@ -149,6 +165,26 @@ export default {
         } else {
           renderer.setRenderTarget(null);
           renderer.render(this.scene, this.camera);
+        }
+      };
+
+      this.addObj = (obj, marco) => {
+        if (marco == true) {
+          obj.children[0].material = new THREE.MeshPhongMaterial({
+            color: 0xffffff,
+          });
+          this.mesh2 = obj;
+          this.scene.add(this.mesh2);
+          this.mesh2.position.y = 0.05;
+        } else {
+          obj.children.forEach((mesh) => {
+            mesh.material = sceneID
+              ? new THREE.MeshNormalMaterial()
+              : new THREE.MeshPhongMaterial({ color: 0xffffff });
+          });
+          this.mesh = obj;
+          this.scene.add(this.mesh);
+          this.mesh.position.y = 0.05;
         }
       };
     }
@@ -166,30 +202,6 @@ export default {
 
       this.quadmaterial = new THREE.ShaderMaterial({
         uniforms: {
-          //   u_resolution: {
-          //     value: {
-          //       x: window.innerWidth,
-          //       y: window.innerHeight,
-          //     },
-          //   },
-          //   u_mouse: {
-          //     value: {
-          //       x: 0.5,
-          //       y: 0.5,
-          //     },
-          //   },
-          //   tDiffuse1: {
-          //     value: null,
-          //   },
-          //   tDiffuse2: {
-          //     value: null,
-          //   },
-          //   mixRatio: {
-          //     value: 0.0,
-          //   },
-          //   threshold: {
-          //     value: 0.1,
-          //   },
           u_image: { type: "t", value: null },
           u_imagehover: { type: "t", value: null },
           u_time: { value: 0 },
@@ -204,59 +216,7 @@ export default {
           },
         },
         vertexShader: vertexShader,
-        // [
-        //   "varying vec2 vUv;",
-
-        //   "void main() {",
-
-        //   "vUv = vec2( uv.x, uv.y );",
-        //   "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );",
-
-        //   "}",
-        // ].join("\n"),
         fragmentShader: fragmentShader,
-        // [
-        //   "#pragma glslify: snoise2 = require('glsl-noise/simplex/2d')",
-        //   "uniform vec2 u_resolution;",
-        //   "uniform vec2 u_mouse;",
-        //   "uniform float mixRatio;",
-
-        //   "uniform sampler2D tDiffuse1;",
-        //   "uniform sampler2D tDiffuse2;",
-
-        //   "uniform float threshold;",
-
-        //   "varying vec2 vUv;",
-
-        //   "float circle(in vec2 _st, in float _radius, in float blurriness){",
-        //   "vec2 dist = _st;",
-        //   "return 1.-smoothstep(_radius-(_radius*blurriness), _radius+(_radius*blurriness), dot(dist,dist)*4.0);",
-        //   "}",
-
-        //   "void main() {",
-
-        //   "	vec4 texel1 = texture2D( tDiffuse1, vUv );",
-        //   "	vec4 texel2 = texture2D( tDiffuse2, vUv );",
-        //   " //vec2 res = u_resolution * PR;",
-        //   " vec2 st = gl_FragCoord.xy/u_resolution.xy;",
-        //   " st.y *= u_resolution.y / u_resolution.x;",
-
-        //   " vec2 mouse = u_mouse * - 1.;",
-        //   " float r = 0.05;",
-
-        //   " mouse.y *= u_resolution.y / u_resolution.x;",
-        //   " //mouse *= -.5;",
-        //   " vec2 circlePos = st + mouse;",
-
-        //   " float color = circle(circlePos,r,1.);",
-
-        //   " float n = snoise2(vec2(v_uv.x, v_uv.y));",
-        //   " gl_FragColor = vec4(vec3(n), 1.);",
-
-        //   " //gl_FragColor = mix( texel2, texel1, color);",
-
-        //   "}",
-        // ].join("\n"),
         defines: {
           PR: window.devicePixelRatio.toFixed(1),
         },
@@ -272,7 +232,6 @@ export default {
       //* Link both scenes and their FBOs
       this.sceneA = sceneA;
       this.sceneB = sceneB;
-      console.log("sceneA: ", this.sceneA);
       //   this.quadmaterial.uniforms.tDiffuse1.value = this.sceneA.fbo.texture;
       //   this.quadmaterial.uniforms.tDiffuse2.value = this.sceneB.fbo.texture;
       this.quadmaterial.uniforms.u_imagehover.value = this.sceneA.fbo.texture;
@@ -282,25 +241,11 @@ export default {
 
       this.render = (delta) => {
         // this.quadmaterial.uniforms.mixRatio.value = 0.5;
-        this.quadmaterial.uniforms.u_mouse.value.x = mouse.x;
+        this.quadmaterial.uniforms.u_mouse.value.x = that.mouse.x;
         this.quadmaterial.uniforms.u_mouse.value.y =
-          ((mouse.y - 0) * (0 - 1)) / (1 - 0) + 1;
+          ((that.mouse.y - 0) * (0 - 1)) / (1 - 0) + 1;
         this.quadmaterial.uniforms.u_time.value += 0.001;
 
-        // // Prevent render both scenes when it's not necessary
-        // if (this.quadmaterial.uniforms.mixRatio.value == 0) {
-        //   this.sceneB.render(delta, false);
-        // } else if (this.quadmaterial.uniforms.mixRatio.value == 1) {
-        //   this.sceneA.render(delta, false);
-        // } else {
-        //   // When 0<transition<1 render transition between two scenes
-
-        //   this.sceneA.render(delta, true);
-        //   this.sceneB.render(delta, true);
-        //   renderer.setRenderTarget(null);
-        //   renderer.clear();
-        //   renderer.render(this.scene, this.cameraOrtho);
-        // }
         this.sceneA.render(delta, true);
         this.sceneB.render(delta, true);
         renderer.setRenderTarget(null);
@@ -315,6 +260,15 @@ export default {
   },
   unmounted() {
     cancelAnimationFrame(this.animReq);
+  },
+  methods: {
+    onMouseMove(event) {
+      gsap.to(this.mouse, {
+        duration: 0.5,
+        x: (event.clientX / window.innerWidth) * 2 - 1,
+        y: -(event.clientY / window.innerHeight) * -2,
+      });
+    },
   },
 };
 </script>
