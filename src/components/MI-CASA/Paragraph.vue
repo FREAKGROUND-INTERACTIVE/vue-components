@@ -63,7 +63,7 @@ export default {
           duration: time,
           // delay: delay,
           y: "100%",
-          ease: "power4.out"
+          ease: "power1.inOut"
         });
       }
 
@@ -71,6 +71,7 @@ export default {
         duration: time,
         // delay: delay,
         y: "100%",
+        ease: "power1.inOut"
       });
 
       if (this.subtitle) {
@@ -78,6 +79,7 @@ export default {
           duration: time,
           // delay: delay,
           y: "100%",
+          ease: "power1.inOut"
         });
       }
 
@@ -85,6 +87,7 @@ export default {
         initTl.from(element, {
           duration: time,
           y: "100%",
+          ease: "power1.inOut"
         }, "<0.2");
       });
 
