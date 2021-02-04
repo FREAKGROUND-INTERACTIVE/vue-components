@@ -20,6 +20,7 @@ components:
       ☐ Create component @high
     BreadCrumb:
       ☐ time @1h
+      ☐ Styles @started(21-02-03 15:19)
     BrandHeader:
       ☐ time @1h
     Button:
@@ -29,7 +30,7 @@ components:
       ☐ Create Component @low 
     LinkButton:
       ☐ time @1h
-      ☐ Styles @started(21-02-02 15:40)
+      ✔ Styles @started(21-02-02 15:40) @done(21-02-03 13:28) @lasted(21h48m22s)
     Paragraph:
       ☐ time @1h
       ☐ Styles @started(21-02-02 11:11)
