@@ -8,7 +8,7 @@
   </div>
   <Font-weight v-if="toShow == 'FontWeight'"></Font-weight>
   <Links-list v-if="toShow == 'LinksList'" :links="['1',2,'3']"></Links-list>
-  <Bread-crumb v-if="toShow == 'BreadCrumb'" :number="numberPage" :title="titlePage"></Bread-crumb>
+  <Bread-crumb v-if="toShow == 'BreadCrumb'" :number="numberPage" :title="titlePage" :pages="[1, 2, 3, 4, 5, 6]"></Bread-crumb>
   <Button v-if="toShow == 'Button'"></Button>
   <Link-button :link="link" v-if="toShow == 'LinkButton'"></Link-button>
   <Img-view-title v-if="toShow == 'ImgViewTitle'"></Img-view-title>

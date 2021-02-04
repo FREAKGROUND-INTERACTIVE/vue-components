@@ -6,10 +6,10 @@
       <div></div>
     </div>
     <div class="breadcrumb__points">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <template v-for="point in pages" :key="point">
+        <div :class="point">
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
   props: {
     number: String,
     title: String,
+    pages: Array
   },
   watch: {
     number: function(val) {
@@ -60,6 +61,7 @@ export default {
     return {
       numberPage: this.number,
       titlePage: this.title,
+
     }
   },
   methods: {
