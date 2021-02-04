@@ -32,12 +32,14 @@ export default {
   data() {
     return {
       linkUrl: this.link,
-      text: "Next".split(""),
+      text: "Next",
       letters: null,
+      line: null,
     };
   },
   mounted() {
     this.letters = this.$el.querySelectorAll(".linkButton__text-letter");
+    this.line = this.$el.querySelector(".linkButton__line > div");
     this.initAnimation();
   },
   methods: {
@@ -46,18 +48,29 @@ export default {
     },
     initAnimation() {
       console.log("init");
-      let animTl = gsap.timeline();
+      let animTl = gsap.timeline({delay: 0.2});
       this.letters.forEach((element) => {
         console.log(element);
-        animTl.from(element, {
-          duration: 1,
-          y: "100%",
-          // onComplete: function () {
-          //   console.log(index);
-          // },
-        });
+        animTl.to(
+          element,
+          {
+            duration: 0.8,
+            y: "0%",
+            // onComplete: function () {
+            //   console.log(index);
+            // },
+          },
+          "<0.2"
+        );
       });
       animTl.play();
+
+      gsap.to(this.line, {
+        duration: 1,
+        width: 130,
+        ease: "power2.out",
+        delay: 0.5,
+      });
     },
   },
 };
@@ -79,17 +92,53 @@ export default {
 
   .linkButton__line {
     margin-right: 1rem;
+    width: 130px;
 
     div {
-      width: 130px;
+      width: 0;
       height: 1px;
       background-color: #333;
+
+      @include transition(all 0.5s);
     }
   }
 
   .linkButton__text {
+    overflow: hidden;
+    font-family: $mont;
+    font-size: 14px;
+    font-weight: 200;
+
     .linkButton__text-letter {
       display: inline-block;
+      @include transition(all 0.3s);
+      @include transform(translateY(100%));
+
+      &:hover {
+        &:nth-child(1) {
+          font-size: 17px;
+        }
+
+        &:nth-child(2) {
+          font-size: 17px;
+          
+        }
+
+        &:nth-child(3) {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .linkButton__line {
+      div {
+        width: 110px !important;
+      }
+    }
+    .linkButton__text-letter {
+      padding-right: 0.2rem;
     }
   }
 }
